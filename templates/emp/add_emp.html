@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    {% include 'emp/navbar.html'%}
+    <h1 class="text-center my-3">Add a new Employee</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-mid-12">
+                <div class="card">
+                    <div class="card-body bg-secondary text-white">
+                        <form action="/emp/add-emp/" method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name">Employee Name</label>
+                                <input name="emp_name" type="text" class="form-control" id="name"
+                                    placeholder="Add Emp Name..">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email">Employee Email</label>
+                                <input name="emp_email" type="email" class="form-control" id="email"
+                                    placeholder="emp@xyz.com..">
+                            </div>
+                            <div class="mb-3">
+                                <label for="number">Phone Number</label>
+                                <input name="emp_ph" type="number" class="form-control" id="number"
+                                    placeholder="phone number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="name">Address</label>
+                                <textarea name="emp_add" name="" id="name" rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <label for="working">Working</label>
+                                <input name="emp_working" id="working" type="checkbox" value="True"
+                                    class="form-check-input">
+                            </div>
+                            <div class="mb-3 text-center">
+                                <label for="department">Department</label>
+                                <select name="emp_dept" id="department" class="form-control">
+                                    <option value="CS">Computer Science</option>
+                                    <option value="IT">Information Technology</option>
+                                    <option value="CybSec">Cyber Security</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <button class="text-center btn btn-light">Add Employee</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
